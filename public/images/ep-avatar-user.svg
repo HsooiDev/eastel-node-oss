@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="bgU" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A1340"/>
+      <stop offset="100%" stop-color="#2D1B5E"/>
+    </linearGradient>
+    <linearGradient id="shirtG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9B7BFF"/>
+      <stop offset="100%" stop-color="#6BAEFF"/>
+    </linearGradient>
+    <linearGradient id="skinG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDDBB4"/>
+      <stop offset="100%" stop-color="#F0C090"/>
+    </linearGradient>
+    <clipPath id="cpU"><circle cx="50" cy="50" r="50"/></clipPath>
+  </defs>
+  <circle cx="50" cy="50" r="50" fill="url(#bgU)"/>
+  <circle cx="50" cy="50" r="47" fill="none" stroke="#9B7BFF" stroke-width="1.5" stroke-opacity="0.4"/>
+  <ellipse cx="50" cy="95" rx="32" ry="22" fill="url(#shirtG)" clip-path="url(#cpU)"/>
+  <rect x="43.5" y="56" width="13" height="12" rx="5" fill="url(#skinG)"/>
+  <circle cx="50" cy="43" r="19" fill="url(#skinG)"/>
+  <path d="M 31 41 Q 31 23 50 23 Q 69 23 69 41 Q 66 30 50 30 Q 34 30 31 41 Z" fill="#4A2F1A"/>
+  <ellipse cx="43.5" cy="42" rx="2.5" ry="2.8" fill="#2C1A0E"/>
+  <ellipse cx="56.5" cy="42" rx="2.5" ry="2.8" fill="#2C1A0E"/>
+  <circle cx="44.5" cy="40.8" r="0.9" fill="white"/>
+  <circle cx="57.5" cy="40.8" r="0.9" fill="white"/>
+  <path d="M 43.5 50 Q 50 56 56.5 50" stroke="#C07840" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 43 56 L 38 66 L 50 62 Z" fill="#8A6AE0" clip-path="url(#cpU)"/>
+  <path d="M 57 56 L 62 66 L 50 62 Z" fill="#7A5AD0" clip-path="url(#cpU)"/>
+</svg>

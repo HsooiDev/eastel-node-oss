@@ -1,0 +1,24 @@
+{
+  "name": "Eastel Mobile",
+  "short_name": "Eastel",
+  "description": "Malaysia's growing MVNO on U Mobile's 5G network",
+  "start_url": "/ms",
+  "display": "standalone",
+  "background_color": "#08051A",
+  "theme_color": "#9B7BFF",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/eastel.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/eastel.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

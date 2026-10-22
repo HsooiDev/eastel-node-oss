@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "plans": [
+    {"id":"ez15","name":"EZ15","price":15,"dataGB":30,"hotspotGB":30,"hotspotMode":"shared","roamingGB":0,"validityDays":15,"status":"available"},
+    {"id":"ez35","name":"EZ35","price":35,"dataGB":200,"hotspotGB":100,"hotspotMode":"separate","roamingGB":0,"validityDays":30,"status":"available"},
+    {"id":"ez50","name":"EZ50","price":50,"dataGB":500,"hotspotGB":500,"hotspotMode":"shared","roamingGB":3,"validityDays":30,"status":"available"},
+    {"id":"ez68","name":"EZ68","price":68,"dataGB":700,"hotspotGB":700,"hotspotMode":"shared","roamingGB":5,"validityDays":30,"status":"available"},
+    {"id":"ez98","name":"EZ98","price":98,"dataGB":999,"hotspotGB":999,"hotspotMode":"shared","roamingGB":10,"validityDays":30,"status":"available"}
+  ]
+}

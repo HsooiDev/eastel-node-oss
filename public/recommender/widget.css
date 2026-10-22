@@ -1,0 +1,402 @@
+.plan-recommender {
+  --plan-recommender-surface: var(--color-surface-container, var(--surface, #111827));
+  --plan-recommender-surface-alt: var(--color-surface-container-low, var(--surface2, var(--surface-alt, #172033)));
+  --plan-recommender-text: var(--color-on-surface, var(--ink, var(--foreground, #f8fafc)));
+  --plan-recommender-muted: var(--color-on-surface-variant, var(--ink2, var(--foreground-muted, #b7c1d5)));
+  --plan-recommender-border: var(--color-outline-variant, var(--border, rgba(148, 163, 184, .32)));
+  --plan-recommender-accent: var(--color-primary, var(--purple, var(--accent, #9b7bff)));
+  --plan-recommender-danger: var(--color-error, var(--coral, #ef6b73));
+  --plan-recommender-success: var(--green, #28b486);
+  --plan-recommender-warning: var(--gold, #e9a23b);
+  display: block;
+  width: 100%;
+  color: var(--plan-recommender-text);
+  font-family: inherit;
+}
+
+.plan-recommender .plan-recommender-widget {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--plan-recommender-border);
+  border-radius: 1rem;
+  background: var(--plan-recommender-surface);
+}
+
+.plan-recommender .plan-recommender-title {
+  margin: 0;
+  color: var(--plan-recommender-text);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.plan-recommender .plan-recommender-intro,
+.plan-recommender .plan-recommender-period {
+  margin: .6rem 0 0;
+  color: var(--plan-recommender-muted);
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+.plan-recommender .plan-recommender-period {
+  margin-top: 1rem;
+  padding: .7rem .85rem;
+  border-left: 3px solid var(--plan-recommender-accent);
+  background: var(--plan-recommender-surface-alt);
+  font-size: .86rem;
+}
+
+.plan-recommender .plan-recommender-form {
+  margin-top: 1.25rem;
+}
+
+.plan-recommender .plan-recommender-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.plan-recommender .plan-recommender-field {
+  min-width: 0;
+}
+
+.plan-recommender .plan-recommender-label {
+  display: block;
+  margin-bottom: .4rem;
+  color: var(--plan-recommender-text);
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.plan-recommender .plan-recommender-input,
+.plan-recommender .plan-recommender-admin-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 2.7rem;
+  padding: .6rem .7rem;
+  border: 1px solid var(--plan-recommender-border);
+  border-radius: .55rem;
+  background: var(--plan-recommender-surface-alt);
+  color: var(--plan-recommender-text);
+  font: inherit;
+  font-size: .95rem;
+}
+
+.plan-recommender .plan-recommender-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.plan-recommender .plan-recommender-input[type="number"]::-webkit-inner-spin-button,
+.plan-recommender .plan-recommender-input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.plan-recommender .plan-recommender-input:focus-visible,
+.plan-recommender .plan-recommender-admin-input:focus-visible,
+.plan-recommender button:focus-visible,
+.plan-recommender a:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--plan-recommender-accent) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.plan-recommender .plan-recommender-input[aria-invalid="true"],
+.plan-recommender .plan-recommender-admin-input[aria-invalid="true"] {
+  border-color: var(--plan-recommender-danger);
+}
+
+.plan-recommender .plan-recommender-submit,
+.plan-recommender .plan-recommender-action,
+.plan-recommender .plan-recommender-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
+  margin-top: 1rem;
+  padding: .58rem .9rem;
+  border: 1px solid var(--plan-recommender-accent);
+  border-radius: .55rem;
+  background: var(--plan-recommender-accent);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: filter .15s ease, opacity .15s ease;
+}
+
+.plan-recommender .plan-recommender-submit:hover,
+.plan-recommender .plan-recommender-action:hover,
+.plan-recommender .plan-recommender-link:hover {
+  filter: brightness(1.08);
+}
+
+.plan-recommender .plan-recommender-submit:disabled,
+.plan-recommender button:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+.plan-recommender .plan-recommender-link {
+  min-height: auto;
+  margin: 0 0 0 .65rem;
+  padding: .3rem .45rem;
+  border-color: transparent;
+  background: transparent;
+  color: var(--plan-recommender-accent);
+  font-size: .88rem;
+  text-decoration: underline;
+}
+
+.plan-recommender .plan-recommender-status {
+  min-height: 1.5rem;
+  margin-top: .85rem;
+}
+
+.plan-recommender .plan-recommender-message {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .25rem;
+  padding: .75rem .9rem;
+  border: 1px solid var(--plan-recommender-border);
+  border-radius: .55rem;
+  background: var(--plan-recommender-surface-alt);
+  color: var(--plan-recommender-muted);
+  font-size: .9rem;
+  line-height: 1.45;
+}
+
+.plan-recommender .plan-recommender-message.is-error {
+  border-color: color-mix(in srgb, var(--plan-recommender-danger) 55%, var(--plan-recommender-border));
+  color: var(--plan-recommender-danger);
+}
+
+.plan-recommender .plan-recommender-message.is-success {
+  border-color: color-mix(in srgb, var(--plan-recommender-success) 55%, var(--plan-recommender-border));
+  color: var(--plan-recommender-success);
+}
+
+.plan-recommender .plan-recommender-message-text {
+  margin: 0;
+}
+
+.plan-recommender .plan-recommender-results {
+  margin-top: 1rem;
+}
+
+.plan-recommender .plan-recommender-result {
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+  border: 1px solid var(--plan-recommender-border);
+  border-radius: .8rem;
+  background: var(--plan-recommender-surface-alt);
+}
+
+.plan-recommender .plan-recommender-result.is-over-budget {
+  border-color: color-mix(in srgb, var(--plan-recommender-warning) 65%, var(--plan-recommender-border));
+}
+
+.plan-recommender .plan-recommender-result.is-no-match {
+  border-color: var(--plan-recommender-border);
+}
+
+.plan-recommender .plan-recommender-result.is-closest {
+  border-color: color-mix(in srgb, var(--plan-recommender-warning) 65%, var(--plan-recommender-border));
+}
+
+.plan-recommender .plan-recommender-closest-intro {
+  margin: .7rem 0 0;
+  color: var(--plan-recommender-muted);
+  line-height: 1.45;
+}
+
+.plan-recommender .plan-recommender-closest-reasons {
+  margin: .7rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--plan-recommender-warning);
+  line-height: 1.5;
+}
+
+.plan-recommender .plan-recommender-result-title {
+  margin: 0;
+  color: var(--plan-recommender-text);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.plan-recommender .plan-recommender-plan-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: .75rem;
+}
+
+.plan-recommender .plan-recommender-plan-name {
+  color: var(--plan-recommender-text);
+  font-size: 1.35rem;
+}
+
+.plan-recommender .plan-recommender-plan-price {
+  color: var(--plan-recommender-accent);
+  font-size: .95rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.plan-recommender .plan-recommender-details {
+  display: grid;
+  gap: .38rem;
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--plan-recommender-muted);
+  font-size: .9rem;
+  line-height: 1.45;
+}
+
+.plan-recommender .plan-recommender-budget,
+.plan-recommender .plan-recommender-disclaimer {
+  margin: 1rem 0 0;
+  color: var(--plan-recommender-muted);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.plan-recommender .plan-recommender-result.is-over-budget .plan-recommender-budget {
+  color: var(--plan-recommender-warning);
+  font-weight: 700;
+}
+
+.plan-recommender .plan-recommender-action.is-over-budget {
+  border-color: color-mix(in srgb, var(--plan-recommender-warning) 75%, var(--plan-recommender-border));
+  background: color-mix(in srgb, var(--plan-recommender-warning) 65%, var(--plan-recommender-surface));
+}
+
+.plan-recommender .plan-recommender-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1.25rem;
+  border: 1px solid var(--plan-recommender-border);
+  border-radius: .65rem;
+}
+
+.plan-recommender .plan-recommender-editor {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.plan-recommender .plan-recommender-admin-table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  color: var(--plan-recommender-text);
+  font-size: .85rem;
+}
+
+.plan-recommender .plan-recommender-admin-table th,
+.plan-recommender .plan-recommender-admin-table td {
+  padding: .6rem;
+  border-bottom: 1px solid var(--plan-recommender-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.plan-recommender .plan-recommender-admin-table th {
+  background: var(--plan-recommender-surface-alt);
+  color: var(--plan-recommender-muted);
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plan-recommender .plan-recommender-admin-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.plan-recommender .plan-recommender-admin-input {
+  min-width: 7rem;
+  min-height: 2.35rem;
+  padding: .45rem .5rem;
+  font-size: .84rem;
+}
+
+.plan-recommender .plan-recommender-admin-cell:first-child .plan-recommender-admin-input {
+  min-width: 9rem;
+}
+
+.plan-recommender .plan-recommender-admin-actions {
+  white-space: nowrap;
+}
+
+.plan-recommender .plan-recommender-admin-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1rem;
+}
+
+.plan-recommender .plan-recommender-admin-toolbar .plan-recommender-link,
+.plan-recommender .plan-recommender-admin-toolbar .plan-recommender-submit {
+  margin-top: 0;
+}
+
+.plan-recommender .plan-recommender-empty-row td {
+  padding: 1.2rem;
+  color: var(--plan-recommender-muted);
+  text-align: center;
+}
+
+.plan-recommender .plan-recommender-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .plan-recommender .plan-recommender-widget {
+    border-radius: .75rem;
+  }
+
+  .plan-recommender .plan-recommender-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-recommender .plan-recommender-submit,
+  .plan-recommender .plan-recommender-action {
+    width: 100%;
+  }
+
+  .plan-recommender .plan-recommender-plan-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .25rem;
+  }
+
+  .plan-recommender .plan-recommender-plan-price {
+    text-align: left;
+  }
+
+  .plan-recommender .plan-recommender-admin-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .plan-recommender .plan-recommender-admin-toolbar .plan-recommender-link,
+  .plan-recommender .plan-recommender-admin-toolbar .plan-recommender-submit {
+    width: 100%;
+  }
+}

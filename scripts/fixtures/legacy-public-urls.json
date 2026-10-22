@@ -1,0 +1,126 @@
+{
+  "source": "sitemap.xml",
+  "urlCount": 30,
+  "urls": [
+    {
+      "source": "/en/",
+      "destination": "/en"
+    },
+    {
+      "source": "/en/plans.php",
+      "destination": "/en/plans"
+    },
+    {
+      "source": "/en/roaming",
+      "destination": "/en/roaming"
+    },
+    {
+      "source": "/en/faq.html",
+      "destination": "/en/faq"
+    },
+    {
+      "source": "/en/contact.html",
+      "destination": "/en/contact"
+    },
+    {
+      "source": "/en/eastelpreneurs.html",
+      "destination": "/en/eastelpreneurs"
+    },
+    {
+      "source": "/ms/",
+      "destination": "/ms"
+    },
+    {
+      "source": "/ms/plans.php",
+      "destination": "/ms/plans"
+    },
+    {
+      "source": "/ms/roaming",
+      "destination": "/ms/roaming"
+    },
+    {
+      "source": "/ms/faq.html",
+      "destination": "/ms/faq"
+    },
+    {
+      "source": "/ms/contact.html",
+      "destination": "/ms/contact"
+    },
+    {
+      "source": "/ms/eastelpreneurs.html",
+      "destination": "/ms/eastelpreneurs"
+    },
+    {
+      "source": "/zh/",
+      "destination": "/zh"
+    },
+    {
+      "source": "/zh/plans.php",
+      "destination": "/zh/plans"
+    },
+    {
+      "source": "/zh/roaming",
+      "destination": "/zh/roaming"
+    },
+    {
+      "source": "/zh/faq.html",
+      "destination": "/zh/faq"
+    },
+    {
+      "source": "/zh/contact.html",
+      "destination": "/zh/contact"
+    },
+    {
+      "source": "/zh/eastelpreneurs.html",
+      "destination": "/zh/eastelpreneurs"
+    },
+    {
+      "source": "/order.html",
+      "destination": "/en/order"
+    },
+    {
+      "source": "/order.html?lang=ms",
+      "destination": "/ms/order"
+    },
+    {
+      "source": "/order.html?lang=zh",
+      "destination": "/zh/order"
+    },
+    {
+      "source": "/delivery-policy.html",
+      "destination": "/en/delivery"
+    },
+    {
+      "source": "/delivery-policy.html?lang=ms",
+      "destination": "/ms/delivery"
+    },
+    {
+      "source": "/delivery-policy.html?lang=zh",
+      "destination": "/zh/delivery"
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/en/privacy"
+    },
+    {
+      "source": "/privacy-policy.html?lang=ms",
+      "destination": "/ms/privacy"
+    },
+    {
+      "source": "/privacy-policy.html?lang=zh",
+      "destination": "/zh/privacy"
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/en/terms"
+    },
+    {
+      "source": "/terms.html?lang=ms",
+      "destination": "/ms/terms"
+    },
+    {
+      "source": "/terms.html?lang=zh",
+      "destination": "/zh/terms"
+    }
+  ]
+}

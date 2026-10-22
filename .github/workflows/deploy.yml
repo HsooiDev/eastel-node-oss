@@ -1,0 +1,58 @@
+name: CI validation (Hostinger owns deployment)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_VERSION: "24"
+  NEXT_TELEMETRY_DISABLED: "1"
+
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - seo_mode: staging
+            site_origin: https://staging.example.test
+          - seo_mode: production
+            site_origin: https://eastel.site
+    env:
+      SITE_ENV: ${{ matrix.seo_mode }}
+      NEXT_PUBLIC_SITE_URL: ${{ matrix.site_origin }}
+      NEXT_PUBLIC_BASE_URL: ${{ matrix.site_origin }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - run: npm ci
+      - run: npm audit --omit=dev
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+      - run: npm run test:password-interop
+      - run: npm run test:core
+      - run: npm run test:ai
+      - run: npm run test:security
+      - run: npm run test:marketing-editor
+      - run: npm run test:tracking
+      - run: node scripts/verify-admin-login.mjs
+      - run: node scripts/verify-auth-migration.mjs
+      - run: node scripts/verify-auth-migration.mjs --empty
+      - run: npm run test:release-checks
+      - run: npm run test:runtime-config
+      - run: npm run test:migration
+      - run: npm run test:seo
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm run test:cutover-routing
+      - run: npm run test:seo-build

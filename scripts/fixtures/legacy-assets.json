@@ -1,0 +1,192 @@
+{
+  "phpReference": "c49077c5a3bbe81ac108ec9518f2a8ae51f9ffd2",
+  "note": "Public assets only. Two corrupt PHP SVG artifacts use valid existing Node SVGs; every other legacy URL retains exact source bytes.",
+  "assets": [
+    {
+      "url": "/images/ASP-Licence.jpg",
+      "file": "public/images/asp-licence.avif",
+      "contentType": "image/avif",
+      "bytes": 35724,
+      "sha256": "7412ef089c285ce8cc0192824460df20417befd0185074639169e8edbb971be6",
+      "phpSha256": "7412ef089c285ce8cc0192824460df20417befd0185074639169e8edbb971be6"
+    },
+    {
+      "url": "/images/Eastel-logo-white-100x100.png",
+      "file": "public/images/eastel-logo-white.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 7239,
+      "sha256": "e1303b9bf06db1e977fc23367a8eef736362d7ee685bdfe60419e94271e7fdab",
+      "phpSha256": "e1303b9bf06db1e977fc23367a8eef736362d7ee685bdfe60419e94271e7fdab"
+    },
+    {
+      "url": "/images/Eastel-mobile-certificates.jpg",
+      "file": "public/images/Eastel-mobile-certificates.jpg",
+      "contentType": "image/jpeg",
+      "bytes": 474485,
+      "sha256": "f4be8fc2257558297ebc16858989063dff230544be2c02aa155ae5e8dda552b0",
+      "phpSha256": "f4be8fc2257558297ebc16858989063dff230544be2c02aa155ae5e8dda552b0"
+    },
+    {
+      "url": "/images/Shariah-Certificate.png",
+      "file": "public/images/Shariah-Certificate.png",
+      "contentType": "image/png",
+      "bytes": 6061098,
+      "sha256": "ec9775876f69b8786d10dd4d6e36d3cca3cf3e23bef9dd51939b5e4952e6428f",
+      "phpSha256": "ec9775876f69b8786d10dd4d6e36d3cca3cf3e23bef9dd51939b5e4952e6428f"
+    },
+    {
+      "url": "/images/eastel-app.jpg",
+      "file": "public/images/eastel-app.jpg",
+      "contentType": "image/jpeg",
+      "bytes": 113815,
+      "sha256": "5e8c460eda4b62e9ace705d96b1a82742dc30e242f5dd4e426e8fe1609e8909d",
+      "phpSha256": "5e8c460eda4b62e9ace705d96b1a82742dc30e242f5dd4e426e8fe1609e8909d"
+    },
+    {
+      "url": "/images/eastel-app.png",
+      "file": "public/images/eastel-app.png",
+      "contentType": "image/png",
+      "bytes": 406944,
+      "sha256": "e01de79a65119ad6a7500e9d34c27f20a00b68a3be62f04b0edbddba3eeb62ea",
+      "phpSha256": "e01de79a65119ad6a7500e9d34c27f20a00b68a3be62f04b0edbddba3eeb62ea"
+    },
+    {
+      "url": "/images/eastel-logo-dark.svg",
+      "file": "public/images/eastel-logo-dark.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 7243,
+      "sha256": "fe9406ac25b514f9552047d3355eccb3d9cdcc569a8f41646594705a7056b112",
+      "phpSha256": "fe9406ac25b514f9552047d3355eccb3d9cdcc569a8f41646594705a7056b112"
+    },
+    {
+      "url": "/images/eastel-logo-dark1.svg",
+      "file": "public/images/eastel-logo-dark.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 7243,
+      "sha256": "fe9406ac25b514f9552047d3355eccb3d9cdcc569a8f41646594705a7056b112",
+      "phpSha256": "8c5ff781afa9303693d288e3878957cdaaaef1255580c3fb595de4b5eb9a4d93",
+      "repair": "Corrupt six-byte PHP SVG replaced by existing valid Node asset"
+    },
+    {
+      "url": "/images/eastel-logo-white.svg",
+      "file": "public/images/eastel-logo-white.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 7239,
+      "sha256": "e1303b9bf06db1e977fc23367a8eef736362d7ee685bdfe60419e94271e7fdab",
+      "phpSha256": "e1303b9bf06db1e977fc23367a8eef736362d7ee685bdfe60419e94271e7fdab"
+    },
+    {
+      "url": "/images/eastel-logo.png",
+      "file": "public/images/eastel-logo.png",
+      "contentType": "image/png",
+      "bytes": 46017,
+      "sha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b",
+      "phpSha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b"
+    },
+    {
+      "url": "/images/eastel-simcard.webp",
+      "file": "public/images/eastel-simcard.webp",
+      "contentType": "image/webp",
+      "bytes": 25850,
+      "sha256": "2a18be308b6a7009321b3a8182ec12fc7683e20e16a02b1166b6e8389910c22a",
+      "phpSha256": "2a18be308b6a7009321b3a8182ec12fc7683e20e16a02b1166b6e8389910c22a"
+    },
+    {
+      "url": "/images/eastel.svg",
+      "file": "public/images/eastel.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 5920,
+      "sha256": "7ccee2a4de90b6f8073df188b8f5349fd55933487d2d1f65e32b0337a80cfea9",
+      "phpSha256": "7ccee2a4de90b6f8073df188b8f5349fd55933487d2d1f65e32b0337a80cfea9"
+    },
+    {
+      "url": "/images/eastel_product.mp4",
+      "file": "public/images/eastel_product.mp4",
+      "contentType": "video/mp4",
+      "bytes": 5879870,
+      "sha256": "56de4b75331132c30bc8a24f056377e823bf0827368d24da803addab24d6c815",
+      "phpSha256": "56de4b75331132c30bc8a24f056377e823bf0827368d24da803addab24d6c815"
+    },
+    {
+      "url": "/images/ep-avatar-person.png",
+      "file": "public/images/ep-avatar-person.png",
+      "contentType": "image/png",
+      "bytes": 11233,
+      "sha256": "4641ff885c99d4d4e9c40fcc0c91cadf25757fe9a2d0fba8d00dde53f9e97cbb",
+      "phpSha256": "4641ff885c99d4d4e9c40fcc0c91cadf25757fe9a2d0fba8d00dde53f9e97cbb"
+    },
+    {
+      "url": "/images/ep-avatar-person_v1.png",
+      "file": "public/images/ep-avatar-person_v1.png",
+      "contentType": "image/png",
+      "bytes": 18514,
+      "sha256": "010361e74a7c8ac4e3811cbb9276fa9d9f11e1e41c33acb65c4421d972c4e8a2",
+      "phpSha256": "010361e74a7c8ac4e3811cbb9276fa9d9f11e1e41c33acb65c4421d972c4e8a2"
+    },
+    {
+      "url": "/images/ep-avatar-user.png",
+      "file": "public/images/ep-avatar-user.png",
+      "contentType": "image/png",
+      "bytes": 9057,
+      "sha256": "718140236406b777e9e175ef22c78e86e2a5dd9b0f5826b8b65f51de80a2727b",
+      "phpSha256": "718140236406b777e9e175ef22c78e86e2a5dd9b0f5826b8b65f51de80a2727b"
+    },
+    {
+      "url": "/images/ep-avatar-user.svg",
+      "file": "public/images/ep-avatar-user.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 1680,
+      "sha256": "974cd92cab8999b85002bb074bf1e2a6cc1001efb650b913cfb1032cd4adfb87",
+      "phpSha256": "974cd92cab8999b85002bb074bf1e2a6cc1001efb650b913cfb1032cd4adfb87"
+    },
+    {
+      "url": "/images/og-banner.png",
+      "file": "public/images/og-banner.png",
+      "contentType": "image/png",
+      "bytes": 46017,
+      "sha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b",
+      "phpSha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b"
+    },
+    {
+      "url": "/images/og-banner.svg",
+      "file": "public/images/og-banner.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 814,
+      "sha256": "5faea48c2e76b9311d019609c4d91cf001a5621aa822a8fbdf9323ee1a43ac68",
+      "phpSha256": "8c5ff781afa9303693d288e3878957cdaaaef1255580c3fb595de4b5eb9a4d93",
+      "repair": "Corrupt six-byte PHP SVG replaced by existing valid Node asset"
+    },
+    {
+      "url": "/images/og-eastelpreneurs.png",
+      "file": "public/images/og-eastelpreneurs.png",
+      "contentType": "image/png",
+      "bytes": 46017,
+      "sha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b",
+      "phpSha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b"
+    },
+    {
+      "url": "/images/og-order.png",
+      "file": "public/images/og-order.png",
+      "contentType": "image/png",
+      "bytes": 46017,
+      "sha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b",
+      "phpSha256": "27c833425b1eea8bd90923ef1adf958dfebc2eb2c902a3053a19fb1ccb05a47b"
+    },
+    {
+      "url": "/images/sim_4k.png",
+      "file": "public/images/sim_4k.png",
+      "contentType": "image/png",
+      "bytes": 8208110,
+      "sha256": "5eb96972d563275617f3ecb4fad9d1963ff3bd17034bf6a3dc959340c26bcfe7",
+      "phpSha256": "5eb96972d563275617f3ecb4fad9d1963ff3bd17034bf6a3dc959340c26bcfe7"
+    },
+    {
+      "url": "/images/asp-licence.jpg",
+      "file": "public/images/asp-licence.avif",
+      "contentType": "image/avif",
+      "bytes": 35724,
+      "sha256": "7412ef089c285ce8cc0192824460df20417befd0185074639169e8edbb971be6",
+      "phpSha256": "7412ef089c285ce8cc0192824460df20417befd0185074639169e8edbb971be6"
+    }
+  ]
+}

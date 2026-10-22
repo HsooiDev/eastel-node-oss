@@ -1,0 +1,413 @@
+/* Plans page — component styles
+   Uses MD3 tokens (--color-*) from globals.css
+   Imported by app/[locale]/plans/page.tsx                        */
+
+/* ── Section wrapper ── */
+.plans-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.plans-grid-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    var(--color-background) 0%,
+    transparent 12%,
+    transparent 88%,
+    var(--color-background) 100%
+  );
+}
+
+/* ── Live ticker ── */
+.plans-ticker {
+  display: flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-on-surface-variant);
+}
+.plans-ticker .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  box-shadow: 0 0 8px var(--color-secondary);
+  margin-right: 8px;
+  flex-shrink: 0;
+  animation: plans-pulse 1.6s ease-in-out infinite;
+}
+@keyframes plans-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* ── Mono label utility (used inside cards) ── */
+.plans-mono-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+}
+
+/* ── Plan card ── */
+.plan-card {
+  position: relative;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 6px;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 350ms cubic-bezier(.22, 1, .36, 1),
+    background-color 600ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 500ms cubic-bezier(.22, 1, .36, 1);
+}
+@media (max-width: 900px) {
+  .plan-card { padding: 22px; }
+}
+.plan-card.featured {
+  border-color: color-mix(in oklab, var(--color-primary) 60%, var(--color-outline-variant));
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--color-primary) 4%, var(--color-surface-container)) 0%,
+    var(--color-surface-container) 60%
+  );
+}
+.plan-card:hover {
+  border-color: color-mix(in oklab, var(--color-primary) 70%, var(--color-outline-variant));
+}
+
+/* Cursor-tracking ambient glow */
+.plan-card .ambient {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(var(--grid-glow), 0.18),
+    rgba(var(--grid-glow), 0.06) 28%,
+    transparent 55%
+  );
+  mix-blend-mode: screen;
+}
+.plan-card:hover .ambient { opacity: 1; }
+[data-theme='light'] .plan-card .ambient { mix-blend-mode: multiply; }
+
+/* Cursor-tracking border edge light */
+.plan-card .edge-light {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(var(--grid-glow), 0.9),
+    rgba(var(--grid-glow), 0.0) 60%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.plan-card:hover .edge-light { opacity: 1; }
+
+/* Price number */
+.plan-price-amount {
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  color: var(--color-on-surface);
+  font-size: 64px;
+  line-height: 1;
+}
+
+/* Spec rows (3-col grid: marker · label · value) */
+.spec-row {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--color-outline-variant);
+  font-family: system-ui, -apple-system, 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  letter-spacing: 0;
+}
+.spec-row:last-child { border-bottom: 0; }
+.spec-row .marker {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--color-on-surface-variant);
+  transform: translateY(-1px);
+}
+.plan-card.featured .spec-row .marker {
+  background: var(--color-primary);
+  box-shadow: 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent);
+}
+.spec-row .sv {
+  color: var(--color-on-surface);
+  font-weight: 600;
+}
+
+/* Bandwidth visualizer bars */
+.bw {
+  display: flex;
+  gap: 3px;
+  height: 18px;
+  align-items: end;
+}
+.bw span {
+  width: 4px;
+  background: var(--color-outline-variant);
+  border-radius: 1px;
+  transition: background 400ms ease, height 400ms cubic-bezier(.22, 1, .36, 1);
+}
+.plan-card.featured .bw span.on { background: var(--color-primary); }
+.plan-card .bw span.on { background: var(--color-on-surface); }
+
+/* CTA button */
+.plan-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1px solid var(--color-outline-variant);
+  background: transparent;
+  color: var(--color-on-surface);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color 300ms ease,
+    background-color 300ms ease,
+    color 300ms ease,
+    filter 300ms ease,
+    transform 300ms cubic-bezier(.22, 1.4, .36, 1);
+}
+.plan-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+.plan-btn.primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+.plan-btn.primary:hover {
+  filter: brightness(1.08);
+  color: var(--color-on-primary);
+  transform: translateY(-1px);
+}
+
+/* Popular ribbon */
+.plan-ribbon {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  transform: translateY(-50%);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 2px;
+  box-shadow: 0 6px 18px -8px color-mix(in oklab, var(--color-primary) 80%, transparent);
+  z-index: 4;
+  white-space: nowrap;
+}
+
+/* Registration corner ticks (crosshair marks at each corner) */
+.reg-tick {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  color: var(--color-outline);
+}
+.reg-tick::before,
+.reg-tick::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+.reg-tick.tl { top: 10px; left: 10px; }
+.reg-tick.tr { top: 10px; right: 10px; }
+.reg-tick.bl { bottom: 10px; left: 10px; }
+.reg-tick.br { bottom: 10px; right: 10px; }
+.reg-tick::before { width: 1px; height: 10px; left: 50%; top: 0; }
+.reg-tick::after  { width: 10px; height: 1px; top: 50%; left: 0; }
+.plan-card.featured .reg-tick { color: var(--color-primary); }
+
+/* Plan index label (01 · PRO) */
+.plan-idx {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+}
+.plan-card.featured .plan-idx { color: var(--color-primary); }
+
+/* Tab switcher */
+.plans-tab-row {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-outline-variant);
+  margin-bottom: 56px;
+}
+.plans-tab-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  position: relative;
+  transition: color 200ms ease;
+}
+.plans-tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(.22, 1, .36, 1);
+}
+.plans-tab-btn[aria-selected="true"] { color: var(--color-primary); }
+.plans-tab-btn[aria-selected="true"]::after { transform: scaleX(1); }
+.plans-tab-btn:hover:not([aria-selected="true"]) { color: var(--color-on-surface); }
+
+/* Compare / meta bar */
+.compare-bar {
+  margin-top: 56px;
+  padding: 20px 24px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--color-surface-container) 70%, transparent);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.compare-stat { display: flex; flex-direction: column; gap: 4px; }
+.compare-stat .ck {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+}
+.compare-stat .cv {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  color: var(--color-on-surface);
+}
+.compare-stat .cv b { color: var(--color-primary); font-weight: 600; }
+
+/* Mobile: full-width single column, no snap-scroll */
+
+/* ── Plan grids — flex-wrap so orphan row centers instead of leaving empty gap ── */
+
+.plans-monthly-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.plans-monthly-grid > * {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+}
+@media (max-width: 1023px) {
+  .plans-monthly-grid > * {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+@media (max-width: 639px) {
+  .plans-monthly-grid > * {
+    flex: 0 0 100%;
+  }
+}
+
+.plans-onetime-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.plans-onetime-grid > * {
+  flex: 0 0 calc((100% - 20px) / 2);
+  min-width: 0;
+}
+@media (max-width: 639px) {
+  .plans-onetime-grid > * {
+    flex: 0 0 100%;
+  }
+}
+
+/* Fine-print notes below spec rows */
+.plan-notes {
+  padding-bottom: 4px;
+}
+.plan-notes p {
+  font-family: system-ui, -apple-system, 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
+  opacity: 0.8;
+}
+.plan-notes p::before { content: '*'; margin-right: 3px; }
+
+/* Booster card (add-on panel) */
+.booster-card {
+  margin-top: 32px;
+  padding: 24px 28px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 6px;
+  background: var(--color-surface-container);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 300ms ease;
+}
+.booster-card:hover {
+  border-color: color-mix(in oklab, var(--color-secondary) 50%, var(--color-outline-variant));
+}

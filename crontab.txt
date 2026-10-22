@@ -1,0 +1,44 @@
+# Eastel Next.js — Crontab Schedule
+# Reference only: merge approved jobs with the existing schedule; never replace it blindly.
+# Or edit with: crontab -e
+# ➜ What each job does + server install checklist: see CRONJOBS.md
+
+# Path to curl (adjust if needed)
+CURL=/usr/bin/curl
+SITE=https://eastel.site
+CRON_SECRET=
+
+# ── WhatsApp Bot ──────────────────────────────────────────────
+
+# Debounce pending messages (every 1 minute)
+* * * * * $CURL -s -X POST -H "x-cron-secret: $CRON_SECRET" $SITE/api/whatsapp/debounce > /dev/null 2>&1
+
+# Check missed conversations (every 3 hours)
+0 */3 * * * $CURL -s -X POST -H "x-cron-secret: $CRON_SECRET" $SITE/api/whatsapp/missed > /dev/null 2>&1
+
+# ── Session Cleanup ───────────────────────────────────────────
+
+# Clean expired sessions and verification codes (every hour)
+0 * * * * $CURL -s -X POST -H "x-cron-secret: $CRON_SECRET" $SITE/api/admin/cleanup > /dev/null 2>&1
+
+# ── Abandoned Order Reminder ──────────────────────────────────
+
+# Remind unpaid orders 3-48h old, once each (hourly). No-op unless
+# abandoned_reminder_enabled=1 in /hs/settings (WA channel additionally
+# requires wa_proactive_enabled=1 — WA messages cost money on free tier).
+0 * * * * $CURL -s -X POST -H "x-cron-secret: $CRON_SECRET" $SITE/api/orders/abandoned-reminder > /dev/null 2>&1
+
+# ── Uptime Monitor ────────────────────────────────────────────
+
+# Every 5 min: check application readiness. A process or critical
+# database/configuration failure returns non-2xx and alerts admin chat.
+# The direct Telegram call still works when the Node app itself is dead.
+# Fill in: TG_ALERT_BOT_TOKEN (bot token) and TG_ALERT_CHAT_ID (admin chat id).
+TG_ALERT_BOT_TOKEN=
+TG_ALERT_CHAT_ID=
+*/5 * * * * $CURL -sf -o /dev/null --max-time 20 -H "Accept: application/json" $SITE/api/health || $CURL -s "https://api.telegram.org/bot$TG_ALERT_BOT_TOKEN/sendMessage" -d "chat_id=$TG_ALERT_CHAT_ID" -d "text=🚨 Eastel readiness failed: $SITE/api/health unavailable" > /dev/null 2>&1
+
+# ── Media Cleanup ─────────────────────────────────────────────
+
+# Delete WhatsApp media older than 30 days (daily at 2 AM) — PHP parity: cron-media-cleanup.php
+0 2 * * * $CURL -s -X POST -H "x-cron-secret: $CRON_SECRET" $SITE/api/media/cleanup > /dev/null 2>&1

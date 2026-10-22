@@ -1,0 +1,69 @@
+{
+  "name": "eastel-website_nodejs",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "check:node": "node scripts/check-node-version.cjs",
+    "preinstall": "npm run check:node",
+    "predev": "npm run check:node",
+    "prebuild": "npm run check:node && npm run check:seo-config",
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "build:hostinger:staging": "node scripts/build-hostinger-staging.mjs",
+    "build:hostinger:production": "node scripts/build-hostinger-production.mjs",
+    "start": "next start",
+    "lint": "eslint",
+    "test:migration": "node --experimental-strip-types scripts/verify-migration-regressions.mjs",
+    "test:core": "node scripts/verify-core-system.mjs && node scripts/verify-review-storage.mjs && node scripts/verify-whatsapp-media.mjs && node scripts/verify-legacy-media-audit.mjs && node scripts/verify-admin-payment-links.mjs && node scripts/verify-payment-resolution.mjs && node scripts/verify-payment-return-ui.mjs && node scripts/verify-payment-wa-log.mjs",
+    "test:cutover-routing": "node scripts/verify-cutover-routing.mjs",
+    "test:security": "node scripts/verify-security-regressions.mjs && node scripts/verify-guest-otp-admission.mjs && node scripts/verify-reset-turnstile.mjs && node scripts/verify-account-mutations.mjs && node scripts/verify-auth-entry-flows.mjs && node scripts/verify-customer-login-attempts.mjs && node scripts/verify-admin-entry-flows.mjs && node scripts/verify-admin-login-attempts.mjs && node scripts/verify-admin-login.mjs",
+    "precreate-admin": "npm run check:node",
+    "create-admin": "node --env-file=.env.local scripts/create-admin.js",
+    "check:runtime-config": "node --experimental-strip-types scripts/check-runtime-config.mjs",
+    "test:runtime-config": "node --experimental-strip-types scripts/verify-runtime-config.mjs",
+    "prestart": "npm run check:node && npm run check:runtime-config && npm run check:seo-config -- --built",
+    "check:release": "node scripts/check-release.mjs",
+    "test:release-checks": "node scripts/verify-release-checks.mjs && node scripts/verify-hostinger-production.mjs",
+    "check:seo-config": "node scripts/check-seo-config.mjs",
+    "test:seo": "node scripts/verify-seo.mjs && node scripts/verify-legacy-redirects.mjs && node scripts/verify-search-content.mjs && node scripts/verify-legacy-assets.mjs",
+    "test:seo-html": "node scripts/verify-seo-html.mjs",
+    "test:nginx-seo": "node scripts/verify-nginx-seo.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:seo-build": "node scripts/verify-seo-build.mjs",
+    "test:ai": "node scripts/verify-ai-commerce.mjs && node scripts/verify-ai-commerce-http.mjs && node scripts/verify-storefront.mjs && node scripts/verify-plan-checkout-ui.mjs && node scripts/verify-order-plan-views.mjs && node scripts/verify-order-receipts.mjs",
+    "test:marketing-editor": "node scripts/verify-marketing-editor.mjs && node scripts/verify-marketing-page-interactions.mjs && node scripts/verify-marketing-shares.mjs && node scripts/verify-marketing-posters.mjs && node scripts/verify-marketing-templates.mjs",
+    "test:password-interop": "node scripts/verify-password-interop.mjs && node scripts/verify-create-admin.mjs && node scripts/verify-email-interop.mjs && node scripts/verify-email-locales.mjs && node scripts/verify-order-notifications.mjs",
+    "test:tracking": "node scripts/verify-shopee-refresh-all.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "bcryptjs": "^3.0.3",
+    "html-to-image": "^1.11.13",
+    "jose": "6.2.12",
+    "lucide-react": "1.59.0",
+    "mysql2": "3.24.6",
+    "next": "16.4.2",
+    "nodemailer": "10.1.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^24.19.2",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.4.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "6.0.3"
+  },
+  "overrides": {
+    "postcss": "^8.5.30"
+  }
+}

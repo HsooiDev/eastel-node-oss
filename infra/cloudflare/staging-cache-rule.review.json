@@ -1,0 +1,7 @@
+{
+  "description": "Staging preview only: bypass edge cache for staging.example.test",
+  "expression": "(http.host eq \"staging.example.test\")",
+  "action": "set_cache_settings",
+  "action_parameters": { "cache": false },
+  "enabled": true
+}
